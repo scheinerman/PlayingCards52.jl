@@ -1,6 +1,4 @@
 using Test
-using TwentyFour
+using PlayingCards
 
-@test solve(5,5,3,1) == "No solution"
-x = solve(5,5,2,1)
-@test eval(Meta.parse(x)) == 24
+@test true
