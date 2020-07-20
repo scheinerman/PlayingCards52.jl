@@ -9,6 +9,7 @@ for k=1:52
     @test k==kk
 end
 
+ace_high(false)
 x = deck()
 sort!(x)
 @test index(x[1]) == 1
