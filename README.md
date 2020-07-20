@@ -12,8 +12,8 @@ Cards from a standard deck of fifty two.
 
 A `Card` is a standard playing card from a fifty-two card deck. The
 following functions return a `Card`:
-* `Card(suit,rank)` where `suit` is one of the symbols `clubs`, `diamonds`,
-`hearts`, or `spades` and `rank` is an integer from `1` (for Ace) to
+* `Card(suit,rank)` where `suit` is one of the symbols `:clubs`, `:diamonds`,
+`:hearts`, or `:spades` and `rank` is an integer from `1` (for Ace) to
 `13` (for King).
 * `Card(index)` where `index` is an integer from `1` (for the Ace of Clubs)
 to `52` (for the King of Spades).
