@@ -1,6 +1,5 @@
 module PlayingCards
 
-greet() = print("Hello World!")
 
 suit_list = [ :clubs, :diamonds, :hearts, :spades ]
 suit_set = Set(suit_list)
