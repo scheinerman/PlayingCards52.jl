@@ -1,0 +1,4 @@
+name = "PlayingCards"
+uuid = "b23e55cc-b8be-42d4-99aa-dbf7daa45c92"
+authors = ["Ed Scheinerman <ers@jhu.edu>"]
+version = "0.0.0"
