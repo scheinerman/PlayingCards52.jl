@@ -21,3 +21,6 @@ ace_high(true)
 @test twoD < AC
 ace_high(false)
 @test twoD > AC
+
+@test color(Card(:clubs,5)) == color(Card(:spades,2))
+@test color(Card(:clubs,5)) != color(Card(:diamonds,2))

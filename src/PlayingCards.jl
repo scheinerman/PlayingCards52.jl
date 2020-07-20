@@ -6,7 +6,7 @@ import LinearAlgebra: rank
 import Base: string, show
 
 
-export Card, suit, rank, index
+export Card, suit, rank, index, color
 
 suit_list = [:clubs, :diamonds, :hearts, :spades]
 suit_set = Set(suit_list)
@@ -78,6 +78,19 @@ rank(c::Card)::Int = c.rnk
 It is once of `:clubs`, `:diamonds`, `:hearts`, or `:spades`.
 """
 suit(c::Card)::Symbol = c.suit.s
+
+"""
+`color(C::Card)` returns the color of the card as either
+the `Symbol` `:black` or `:red`.
+"""
+function color(C::Card)::Symbol
+    s = suit(C)
+    if s==:clubs || s==:spades
+        return :black
+    end
+    return :red
+end
+
 
 function string(C::Card)::String
     global suit_char

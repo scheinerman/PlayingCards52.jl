@@ -40,7 +40,7 @@ julia> string(Card(22))
 ```
 
 
-## Determine suit and rank
+## Determine properties
 
 The functions `suit` and `rank` return the suit (as a `Symbol`) and the
 rank (as an `Int`) of the card.
@@ -63,6 +63,18 @@ julia> c = Card(17)
 
 julia> index(c)
 17
+```
+
+Use `color` to determine if the `Card` is red or black:
+```
+julia> C = Card(:clubs,9)
+9♣
+
+julia> color(C)
+:black
+
+julia> color(Card(27))  # this is the Ace of Hearts
+:red
 ```
 
 ## Ordering
