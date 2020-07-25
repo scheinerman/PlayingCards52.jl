@@ -1,5 +1,5 @@
 module PlayingCards
-using LinearAlgebra, Random
+using LinearAlgebra, Random, SimpleRandom
 
 
 import LinearAlgebra: rank
@@ -105,6 +105,6 @@ end
 
 include("ordering.jl")
 include("deck.jl")
-
+include("riffle.jl")
 
 end # module

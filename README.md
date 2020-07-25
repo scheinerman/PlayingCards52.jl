@@ -40,7 +40,7 @@ julia> string(Card(22))
 ```
 
 
-## Determine properties
+## Determine Properties
 
 The functions `suit` and `rank` return the suit (as a `Symbol`) and the
 rank (as an `Int`) of the card.
@@ -112,52 +112,20 @@ true
 The function `deck()` returns a 52-long array containing all possible
 cards in random order. Use `deck(false)` for them to be returned in a
 "new box" order.
-```
-julia> deck()
-52-element Array{Card,1}:
- J♣
- 2♣
- T♢
- 8♣
- K♡
- 8♢
- 3♢
- T♡
- 2♠
- Q♣
- ⋮
- Q♠
- 4♠
- 5♠
- 7♢
- A♠
- 3♡
- K♣
- 3♠
- 4♢
 
-julia> deck(false)
-52-element Array{Card,1}:
- A♣
- 2♣
- 3♣
- 4♣
- 5♣
- 6♣
- 7♣
- 8♣
- 9♣
- T♣
- ⋮
- 5♠
- 6♠
- 7♠
- 8♠
- 9♠
- T♠
- J♠
- Q♠
- K♠
+Use the function `print_deck()` to see all 52 cards in four lines of
+thirteen cards each.
+```julia> d = deck(); print_deck(d)
+2♠ J♢ K♠ 3♣ Q♢ 6♢ K♡ 9♣ A♠ 8♢ 7♡ J♣ 4♠
+8♣ T♢ T♣ 2♢ 4♣ 3♡ T♡ 6♡ Q♣ A♣ 4♢ 8♡ 8♠
+3♠ 3♢ 5♣ J♠ 5♢ 6♣ A♢ T♠ Q♡ 7♣ 9♠ 7♠ 6♠
+Q♠ J♡ 7♢ 2♡ A♡ 9♢ 2♣ 4♡ 5♡ K♣ 9♡ 5♠ K♢
+
+julia> d = deck(false); print_deck(d)
+A♣ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ T♣ J♣ Q♣ K♣
+A♢ 2♢ 3♢ 4♢ 5♢ 6♢ 7♢ 8♢ 9♢ T♢ J♢ Q♢ K♢
+A♡ 2♡ 3♡ 4♡ 5♡ 6♡ 7♡ 8♡ 9♡ T♡ J♡ Q♡ K♡
+A♠ 2♠ 3♠ 4♠ 5♠ 6♠ 7♠ 8♠ 9♠ T♠ J♠ Q♠ K♠
 ```
 
 Deal a random poker hand like this:
@@ -167,3 +135,23 @@ julia> using ShowSet
 julia> Set(deck()[1:5])
 {2♠,6♢,6♡,T♠,K♣}
 ```
+
+## Shuffling
+
+The function `riffle!` applies a riffle shuffle to the deck
+using the Gilbert–Shannon–Reeds model.
+```
+julia> d = deck(false); print_deck(d)
+A♣ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ T♣ J♣ Q♣ K♣
+A♢ 2♢ 3♢ 4♢ 5♢ 6♢ 7♢ 8♢ 9♢ T♢ J♢ Q♢ K♢
+A♡ 2♡ 3♡ 4♡ 5♡ 6♡ 7♡ 8♡ 9♡ T♡ J♡ Q♡ K♡
+A♠ 2♠ 3♠ 4♠ 5♠ 6♠ 7♠ 8♠ 9♠ T♠ J♠ Q♠ K♠
+
+julia> riffle!(d); print_deck(d)
+A♣ 4♡ 5♡ 6♡ 2♣ 3♣ 4♣ 7♡ 8♡ 9♡ T♡ J♡ Q♡
+K♡ A♠ 2♠ 5♣ 6♣ 7♣ 8♣ 9♣ T♣ J♣ Q♣ K♣ A♢
+3♠ 4♠ 5♠ 6♠ 7♠ 2♢ 3♢ 8♠ 4♢ 5♢ 6♢ 7♢ 9♠
+8♢ 9♢ T♠ T♢ J♢ Q♢ J♠ K♢ Q♠ A♡ 2♡ K♠ 3♡
+```
+Note that a single riffle shuffle does a poor job at randomizing
+the deck.
