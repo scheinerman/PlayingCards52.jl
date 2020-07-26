@@ -40,7 +40,7 @@ julia> string(Card(22))
 ```
 
 
-## Determine Properties
+## Determine properties
 
 The functions `suit` and `rank` return the suit (as a `Symbol`) and the
 rank (as an `Int`) of the card.
@@ -138,7 +138,7 @@ julia> Set(deck()[1:5])
 
 ## Shuffling
 
-The function `riffle!` applies a riffle shuffle to the deck
+The function `riffle!` applies a random riffle shuffle to the deck
 using the Gilbert–Shannon–Reeds model.
 ```
 julia> d = deck(false); print_deck(d)
@@ -155,3 +155,22 @@ K♡ A♠ 2♠ 5♣ 6♣ 7♣ 8♣ 9♣ T♣ J♣ Q♣ K♣ A♢
 ```
 Note that a single riffle shuffle does a poor job at randomizing
 the deck.
+
+The function `cut!` is used to cut the deck.
+* `cut!(d,idx)` moves cards `1` through `idx` to the back of the deck; the
+new first card is the one formerly at position `idx+1`.
+* `cut!(d)` cuts the deck a random index.  If the deck has `n` cards,
+then the cut location is given by the binomial random variable `B(n,1/2)`.
+
+
+```
+julia> d = deck(false);
+
+julia> cut!(d)
+
+julia> print_deck(d)
+Q♢ K♢ A♡ 2♡ 3♡ 4♡ 5♡ 6♡ 7♡ 8♡ 9♡ T♡ J♡
+Q♡ K♡ A♠ 2♠ 3♠ 4♠ 5♠ 6♠ 7♠ 8♠ 9♠ T♠ J♠
+Q♠ K♠ A♣ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ T♣ J♣
+Q♣ K♣ A♢ 2♢ 3♢ 4♢ 5♢ 6♢ 7♢ 8♢ 9♢ T♢ J♢
+```

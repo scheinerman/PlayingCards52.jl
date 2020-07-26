@@ -105,6 +105,6 @@ end
 
 include("ordering.jl")
 include("deck.jl")
-include("riffle.jl")
+include("shuffle.jl")
 
 end # module
