@@ -3,10 +3,9 @@
 Cards from a standard deck of fifty two.
 
 
-[![Build Status](https://travis-ci.org/scheinerman/PlayingCards.jl.svg?branch=master)](https://travis-ci.org/scheinerman/PlayingCards.jl)
+[![Build Status](https://travis-ci.com/scheinerman/PlayingCards.jl.svg?branch=master)](https://travis-ci.com/scheinerman/PlayingCards.jl)
 
 
-[![codecov.io](http://codecov.io/github/scheinerman/PlayingCards.jl/coverage.svg?branch=master)](http://codecov.io/github/scheinerman/PlayingCards.jl?branch=master)
 
 ## Pick a card
 
