@@ -1,4 +1,4 @@
-module PlayingCards
+module PlayingCards52
 using LinearAlgebra, Random, SimpleRandom
 
 
