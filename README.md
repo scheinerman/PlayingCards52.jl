@@ -1,4 +1,4 @@
-# PlayingCards
+# PlayingCards52
 
 Cards from a standard deck of fifty two.
 
