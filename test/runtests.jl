@@ -1,5 +1,5 @@
 using Test
-using PlayingCards
+using PlayingCards52
 
 @test true
 
