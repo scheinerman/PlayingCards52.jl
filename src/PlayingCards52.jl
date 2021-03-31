@@ -12,9 +12,7 @@ suit_list = [:clubs, :diamonds, :hearts, :spades]
 suit_set = Set(suit_list)
 suit_char =
     Dict{Symbol,Char}(:clubs => '♣', :diamonds => '♢', :hearts => '♡', :spades => '♠')
-suit_number = Dict{Symbol,Int}(
-    :clubs => 1, :diamonds => 2, :hearts => 3, :spades => 4
-)
+suit_number = Dict{Symbol,Int}(:clubs => 1, :diamonds => 2, :hearts => 3, :spades => 4)
 
 rank_list = "A23456789TJQK"
 
@@ -55,7 +53,7 @@ end
 """
 `Card()` returns a random card.
 """
-Card()::Card = Card(mod(rand(Int),52)+1)
+Card()::Card = Card(mod(rand(Int), 52) + 1)
 
 """
 `index(C::Card)` returns an index `k` (with `1 <= k <= 52`)
@@ -64,7 +62,7 @@ such that `C == Card(k)`.
 function index(C::Card)::Int
     global suit_number
     s = suit_number[suit(C)]
-    return 13*(s-1) + rank(C)
+    return 13 * (s - 1) + rank(C)
 end
 
 
@@ -85,7 +83,7 @@ the `Symbol` `:black` or `:red`.
 """
 function color(C::Card)::Symbol
     s = suit(C)
-    if s==:clubs || s==:spades
+    if s == :clubs || s == :spades
         return :black
     end
     return :red

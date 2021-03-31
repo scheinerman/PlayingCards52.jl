@@ -9,7 +9,7 @@ function riffle!(list::Vector)
     if n < 2
         return
     end
-    t = binom_rv(n,0.5)
+    t = binom_rv(n, 0.5)
     A = list[1:t]
     B = list[t+1:end]
 
@@ -20,10 +20,10 @@ function riffle!(list::Vector)
     a = 1
     b = 1
 
-    for j=1:n
+    for j = 1:n
         top = na - a + 1
-        bot = (na-a+1) + (nb-b+1)
-        p = top/bot   # prob we choose from A
+        bot = (na - a + 1) + (nb - b + 1)
+        p = top / bot   # prob we choose from A
 
         if rand() <= p
             list[j] = A[a]
@@ -49,7 +49,7 @@ function cut!(list::Vector, idx::Int)
     n = length(list)
     @assert 0 <= idx <= n "Cut index must be between 0 and $n [got $idx]"
 
-    if idx==0 || idx==n
+    if idx == 0 || idx == n
         return
     end
 
@@ -59,11 +59,11 @@ function cut!(list::Vector, idx::Int)
     na = length(A)
     nb = length(B)
 
-    for j=1:nb
+    for j = 1:nb
         list[j] = B[j]
     end
 
-    for j=1:na
+    for j = 1:na
         list[nb+j] = A[j]
     end
     return
@@ -71,5 +71,5 @@ end
 
 function cut!(list::Vector)
     idx = binom_rv(length(list), 0.5)
-    cut!(list,idx)
+    cut!(list, idx)
 end

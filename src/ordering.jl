@@ -45,4 +45,4 @@ function (<)(C::Card, D::Card)::Bool
     return sC < sD
 end
 
-isless(C::Card,D::Card)::Bool= C<D
+isless(C::Card, D::Card)::Bool = C < D
