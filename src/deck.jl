@@ -5,9 +5,9 @@ export deck, print_deck
 Use `deck(false)` to get a list in new-box order (from Ace of Clubs
 to King of Spades).
 """
-function deck(shuffle::Bool = true)::Vector{Card}
+function deck(shuffled::Bool = true)::Vector{Card}
     idx = collect(1:52)
-    if shuffle
+    if shuffled
         idx = randperm(52)
     end
 

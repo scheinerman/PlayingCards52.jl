@@ -1,4 +1,4 @@
-export riffle!, cut!
+export riffle, riffle!, cut, cut!
 
 """
 `riffle!(list)` does an in-place riffle shuffle permutation on
@@ -33,9 +33,18 @@ function riffle!(list::Vector)
             b += 1
         end
     end
-    nothing
+    list
 end
 
+"""
+`riffle(list)` performs a riffle shuffle permutation on a copy of
+`list` using the Gilbert–Shannon–Reeds model. The original `list`
+is unchanged.
+"""
+function riffle(list::Vector)
+    tmp = deepcopy(list)
+    riffle!(tmp)
+end
 
 
 
@@ -69,10 +78,30 @@ function cut!(list::Vector, idx::Int)
     for j = 1:na
         list[nb+j] = A[j]
     end
-    return
+    return list
 end
+
 
 function cut!(list::Vector)
     idx = binom_rv(length(list), 0.5)
     cut!(list, idx)
 end
+
+"""
+`cut(list,idx)` and `cut(list)` uses `cut!` to cut a copy of the deck `list`
+leaving the original `list` unchanged.
+"""
+function cut(list::Vector, idx::Int)
+    tmp = deepcopy(list)
+    cut!(tmp, idx)
+end
+function cut(list::Vector)
+    tmp = deepcopy(list)
+    cut!(list)
+end
+
+
+
+
+import Random: shuffle!, shuffle
+export shuffle!, shuffle

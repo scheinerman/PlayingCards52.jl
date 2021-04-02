@@ -137,6 +137,10 @@ julia> Set(deck()[1:5])
 
 ## Shuffling
 
+The functions `shuffle` and `shuffle!` from the `Random` module are 
+imported and so may be applied to card decks.
+
+
 The function `riffle!` applies a random riffle shuffle to the deck
 using the Gilbert–Shannon–Reeds model.
 ```
