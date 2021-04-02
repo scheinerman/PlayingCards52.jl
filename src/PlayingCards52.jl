@@ -100,7 +100,6 @@ function show(io::IO, C::Card)
     print(io, string(C))
 end
 
-
 include("ordering.jl")
 include("deck.jl")
 include("shuffle.jl")
