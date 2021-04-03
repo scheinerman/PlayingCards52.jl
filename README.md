@@ -3,7 +3,7 @@
 Cards from a standard deck of fifty two.
 
 
-[![Build Status](https://travis-ci.com/scheinerman/PlayingCards.jl.svg?branch=master)](https://travis-ci.com/scheinerman/PlayingCards.jl)
+[![Build Status](https://travis-ci.com/scheinerman/PlayingCards52.jl.svg?branch=master)](https://travis-ci.com/scheinerman/PlayingCards52.jl)
 
 
 
