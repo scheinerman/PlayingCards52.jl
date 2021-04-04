@@ -137,12 +137,18 @@ julia> Set(deck()[1:5])
 
 ## Shuffling
 
+The `deck()` function returns a randomly shuffled deck of cards with all 52! 
+possible orderings equally likely. 
+
+However, if one wishes to manually randomize the deck, or to randomize an ordered deck
+as returned by `deck(false)`, we provide the functions `shuffle`, `riffle`, and `cut`.
+
 The functions `shuffle` and `shuffle!` from the `Random` module are 
 imported and so may be applied to card decks.
 
 
 The function `riffle!` applies a random riffle shuffle to the deck
-using the Gilbert–Shannon–Reeds model.
+using the [Gilbert–Shannon–Reeds model](https://en.wikipedia.org/wiki/Gilbert%E2%80%93Shannon%E2%80%93Reeds_model).
 ```
 julia> d = deck(false); print_deck(d)
 A♣ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ T♣ J♣ Q♣ K♣
