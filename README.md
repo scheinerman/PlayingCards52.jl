@@ -139,13 +139,18 @@ julia> Set(deck()[1:5])
 
 The `deck()` function returns a randomly shuffled deck of cards with all 52! 
 possible orderings equally likely. 
-
 However, if one wishes to manually randomize the deck, or to randomize an ordered deck
 as returned by `deck(false)`, we provide the functions `shuffle`, `riffle`, and `cut`.
 
-The functions `shuffle` and `shuffle!` from the `Random` module are 
-imported and so may be applied to card decks.
+### Shuffle
 
+The functions `shuffle` and `shuffle!` from the `Random` module are 
+imported and so may be applied to card decks. These functions apply a random
+permutation to the cards (all orders equally likely). The function `shuffle` 
+returns a new deck, leaving the original deck unchanged. The function `shuffle!`
+overwrites the deck in the new order.
+
+### Riffle 
 
 The function `riffle!` applies a random riffle shuffle to the deck
 using the [Gilbert–Shannon–Reeds model](https://en.wikipedia.org/wiki/Gilbert%E2%80%93Shannon%E2%80%93Reeds_model).
@@ -164,6 +169,9 @@ K♡ A♠ 2♠ 5♣ 6♣ 7♣ 8♣ 9♣ T♣ J♣ Q♣ K♣ A♢
 ```
 Note that a single riffle shuffle does a poor job at randomizing
 the deck.
+
+
+### Cut
 
 The function `cut!` is used to cut the deck.
 * `cut!(d,idx)` moves cards `1` through `idx` to the back of the deck; the
