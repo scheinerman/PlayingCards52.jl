@@ -37,9 +37,8 @@ function riffle!(list::Vector)
 end
 
 """
-`riffle(list)` performs a riffle shuffle permutation on a copy of
-`list` using the Gilbert–Shannon–Reeds model. The original `list`
-is unchanged.
+`riffle(list)` performs a riffle shuffle permutation on a copy of `list` using the 
+Gilbert–Shannon–Reeds model. The original `list` is unchanged.
 """
 function riffle(list::Vector)
     tmp = deepcopy(list)
