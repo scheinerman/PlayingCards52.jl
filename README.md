@@ -18,7 +18,7 @@ following functions return a `Card`:
 to `52` (for the King of Spades).
 * `Card()` returns a random card.
 
-```
+```julia
 julia> using PlayingCards
 
 julia> Card(:diamonds,12)
@@ -33,7 +33,7 @@ Q♠
 
 The function `string` returns a two-character representation of the
 `Card`:
-```
+```julia
 julia> string(Card(22))
 "9♢"
 ```
@@ -43,7 +43,7 @@ julia> string(Card(22))
 
 The functions `suit` and `rank` return the suit (as a `Symbol`) and the
 rank (as an `Int`) of the card.
-```
+```julia
 julia> c = Card()
 J♣
 
@@ -56,7 +56,7 @@ julia> rank(c)
 
 The function `index` returns a distinct integer value (from `1` to `52`)
 for the card.
-```
+```julia
 julia> c = Card(17)
 4♢
 
@@ -65,7 +65,7 @@ julia> index(c)
 ```
 
 Use `color` to determine if the `Card` is red or black:
-```
+```julia
 julia> C = Card(:clubs,9)
 9♣
 
@@ -81,7 +81,7 @@ julia> color(Card(27))  # this is the Ace of Hearts
 Two `Card`s can be compared with the usual ordering operators (such as `<`).
 The ordering of cards is determined first by rank and, if of the same rank,
 by suit (alphabetically, as in bridge).
-```
+```julia
 julia> Card(:diamonds,10) < Card(:hearts,10)
 true
 
@@ -92,7 +92,7 @@ false
 The `ace_high` function is used to determine if an Ace is higher
 or lower than the other ranks. Use `ace_high(true)` or `ace_high(false)`
 to set your preference. A call to `ace_high()` returns the current setting.
-```
+```julia
 julia> ace_high()
 true
 
@@ -114,7 +114,8 @@ cards in random order. Use `deck(false)` for them to be returned in a
 
 Use the function `print_deck()` to see all 52 cards in four lines of
 thirteen cards each.
-```julia> d = deck(); print_deck(d)
+```julia
+julia> d = deck(); print_deck(d)
 2♠ J♢ K♠ 3♣ Q♢ 6♢ K♡ 9♣ A♠ 8♢ 7♡ J♣ 4♠
 8♣ T♢ T♣ 2♢ 4♣ 3♡ T♡ 6♡ Q♣ A♣ 4♢ 8♡ 8♠
 3♠ 3♢ 5♣ J♠ 5♢ 6♣ A♢ T♠ Q♡ 7♣ 9♠ 7♠ 6♠
@@ -128,7 +129,7 @@ A♠ 2♠ 3♠ 4♠ 5♠ 6♠ 7♠ 8♠ 9♠ T♠ J♠ Q♠ K♠
 ```
 
 Deal a random poker hand like this:
-```
+```julia
 julia> using ShowSet
 
 julia> Set(deck()[1:5])
@@ -141,6 +142,8 @@ The `deck()` function returns a randomly shuffled deck of cards with all 52!
 possible orderings equally likely. 
 However, if one wishes to manually randomize the deck, or to randomize an ordered deck
 as returned by `deck(false)`, we provide the functions `shuffle`, `riffle`, and `cut`.
+These functions are typically applied to a full deck of 52 cards, but may be used
+on any list.
 
 ### Shuffle
 
@@ -152,9 +155,10 @@ overwrites the deck in the new order.
 
 ### Riffle 
 
-The function `riffle!` applies a random riffle shuffle to the deck
-using the [Gilbert–Shannon–Reeds model](https://en.wikipedia.org/wiki/Gilbert%E2%80%93Shannon%E2%80%93Reeds_model).
-```
+The functions `riffle` and `riffle!` apply a random riffle shuffle to the deck
+using the [Gilbert–Shannon–Reeds model](https://en.wikipedia.org/wiki/Gilbert%E2%80%93Shannon%E2%80%93Reeds_model). The former leaves the original 
+deck unchanged and the latter overwrites the deck.
+```julia
 julia> d = deck(false); print_deck(d)
 A♣ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ T♣ J♣ Q♣ K♣
 A♢ 2♢ 3♢ 4♢ 5♢ 6♢ 7♢ 8♢ 9♢ T♢ J♢ Q♢ K♢
@@ -173,14 +177,14 @@ the deck.
 
 ### Cut
 
-The function `cut!` is used to cut the deck.
+The functions `cut` and `cut!` are used to cut the deck. 
 * `cut!(d,idx)` moves cards `1` through `idx` to the back of the deck; the
 new first card is the one formerly at position `idx+1`.
 * `cut!(d)` cuts the deck a random index.  If the deck has `n` cards,
 then the cut location is given by the binomial random variable `B(n,1/2)`.
 
 
-```
+```julia
 julia> d = deck(false);
 
 julia> cut!(d)
