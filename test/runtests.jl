@@ -33,3 +33,9 @@ cut!(d, 6)
 
 riffle!(d)
 @test sort(d) == collect(1:10)
+
+# test alternative notation
+
+@test A♣ == Card(:clubs, 1)
+@test K♣ == 13♣
+@test 7♠ == Card(:spades, 7)

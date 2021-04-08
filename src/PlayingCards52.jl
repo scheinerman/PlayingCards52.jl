@@ -39,7 +39,7 @@ struct Card
     end
     function Card(s::Suit, r::Int)
         @assert 1 <= r <= 13 "Card rank must be between 1 (ace) and 13 (king)"
-        new(s,r)
+        new(s, r)
     end
 
 end
