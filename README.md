@@ -38,6 +38,22 @@ julia> string(Card(22))
 "9♢"
 ```
 
+### Alternative input
+
+Cards can be entered via their two-character representation. For example, the nine of diamonds can be entered as `9♢`. That is, type `9` then `\diamondsuit` and then TAB.
+
+Face cards, tens, and aces can also be entered in this way (using the capital letters T, J, K, Q, and A followed by the suit symbol):
+```julia
+julia> c = K♠;
+
+julia> println(c)
+K♠
+
+julia> T♡ == Card(:hearts,10)
+true
+```
+
+
 
 ## Determine properties
 
