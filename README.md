@@ -52,6 +52,18 @@ K♠
 julia> T♡ == Card(:hearts,10)
 true
 ```
+These cards can also be entered with a leading 1, 10, 11, 12, or 13:
+```julia
+julia> 10♢
+T♢
+
+julia> 13♠
+K♠
+
+julia> 1♣
+A♣
+```
+
 
 
 
