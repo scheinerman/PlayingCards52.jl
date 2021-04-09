@@ -223,3 +223,10 @@ Q♡ K♡ A♠ 2♠ 3♠ 4♠ 5♠ 6♠ 7♠ 8♠ 9♠ T♠ J♠
 Q♠ K♠ A♣ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ T♣ J♣
 Q♣ K♣ A♢ 2♢ 3♢ 4♢ 5♢ 6♢ 7♢ 8♢ 9♢ T♢ J♢
 ```
+
+## Acknowledgement
+
+Developed  with input from [@charleskawczynski](https://github.com/charleskawczynski)
+and in parallel with his
+[PlayingCards.jl](https://github.com/charleskawczynski/PlayingCards.jl).
+
