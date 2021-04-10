@@ -9,7 +9,7 @@ function riffle!(list::Vector)
     if n < 2
         return
     end
-    t = binom_rv(n, 0.5)
+    t = _simple_binomial(n)
     A = list[1:t]
     B = list[t+1:end]
 
@@ -46,6 +46,14 @@ function riffle(list::Vector)
 end
 
 
+"""
+    _simple_binomial(n::Int)
+
+Return a random B(n,0.5) random value.
+"""
+function _simple_binomial(n::Int)
+    return sum(rand() > 0.5 for _=1:n)
+end
 
 """
 `cut!(list,idx)` cuts the deck `list` by moving cards `1` through `idx`
@@ -82,7 +90,7 @@ end
 
 
 function cut!(list::Vector)
-    idx = binom_rv(length(list), 0.5)
+    idx = _simple_binomial(length(list))
     cut!(list, idx)
 end
 
@@ -96,7 +104,7 @@ function cut(list::Vector, idx::Int)
 end
 function cut(list::Vector)
     tmp = deepcopy(list)
-    cut!(list)
+    cut!(tmp)
 end
 
 

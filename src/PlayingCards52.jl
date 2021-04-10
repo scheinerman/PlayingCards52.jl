@@ -1,5 +1,5 @@
 module PlayingCards52
-using LinearAlgebra, Random, SimpleRandom
+using LinearAlgebra, Random
 
 
 import LinearAlgebra: rank
