@@ -11,7 +11,7 @@ SimpleRandom = "a6525b86-64cd-54fa-8f65-62fc48bdc0e8"
 
 [compat]
 julia = "1"
-SimpleRandom = "0.1, 0.2"
+SimpleRandom = "0.1, 0.2, 0.3"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
