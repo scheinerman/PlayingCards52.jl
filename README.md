@@ -7,7 +7,7 @@ Cards from a standard deck of fifty two.
 
 
 
-## Pick a card
+## Pick a Card
 
 A `Card` is a standard playing card from a fifty-two card deck. The
 following functions return a `Card`:
@@ -67,7 +67,7 @@ A♣
 
 
 
-## Determine properties
+## Determine Properties
 
 The functions `suit` and `rank` return the suit (as a `Symbol`) and the
 rank (as an `Int`) of the card.
