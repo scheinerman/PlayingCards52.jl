@@ -64,8 +64,23 @@ julia> 1♣
 A♣
 ```
 
+Note that the four suit symbols are defined as objects of type `PlayingCards52.Suit`:
+```julia
+julia> ♠    # type \spadesuit and then TAB
+PlayingCards52.Suit(:spades)
+```
 
+Cards can be created either using either `:spades` or `♠`:
+```julia
+julia> a = Card(:spades,5)
+5♠
 
+julia> b = Card(♠,5)
+5♠
+
+julia> a==b
+true
+```
 
 ## Determine Properties
 

@@ -16,7 +16,6 @@ suit_number = Dict{Symbol,Int}(:clubs => 1, :diamonds => 2, :hearts => 3, :spade
 
 rank_list = "A23456789TJQK"
 
-
 struct Suit
     s::Symbol
     function Suit(s::Symbol)
@@ -41,7 +40,6 @@ struct Card
         @assert 1 <= r <= 13 "Card rank must be between 1 (ace) and 13 (king)"
         new(s, r)
     end
-
 end
 
 """

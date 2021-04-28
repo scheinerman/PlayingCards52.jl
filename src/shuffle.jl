@@ -52,7 +52,7 @@ end
 Return a random B(n,0.5) random value.
 """
 function _simple_binomial(n::Int)
-    return sum(rand() > 0.5 for _=1:n)
+    return sum(rand() > 0.5 for _ = 1:n)
 end
 
 """
@@ -88,7 +88,6 @@ function cut!(list::Vector, idx::Int)
     return list
 end
 
-
 function cut!(list::Vector)
     idx = _simple_binomial(length(list))
     cut!(list, idx)
@@ -106,9 +105,6 @@ function cut(list::Vector)
     tmp = deepcopy(list)
     cut!(tmp)
 end
-
-
-
 
 import Random: shuffle!, shuffle
 export shuffle!, shuffle
