@@ -250,7 +250,7 @@ julia> Char(c)
 '🃄': Unicode U+1F0C4 (category So: Symbol, other)
 ```
 
-The characters are nearly unreadable at small font sizes (e.g., 12 point); they need to be enlarged to be visible.
+The characters are unreadable at small font sizes (e.g., 12 point); they need to be enlarged to be visible.
 
 ![](./4D.png)
 
