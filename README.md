@@ -252,7 +252,7 @@ julia> Char(c)
 
 The characters are nearly unreadable at small font sizes (e.g., 12 point); they need to be enlarged to be visible.
 
-<font size=6>🃄</font>
+![](./4D.png)
 
 ## Acknowledgement
 
