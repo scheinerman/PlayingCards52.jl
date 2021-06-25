@@ -107,5 +107,6 @@ include("ordering.jl")
 include("deck.jl")
 include("shuffle.jl")
 include("input.jl")
+include("unicode.jl")
 
 end # module

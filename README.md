@@ -239,6 +239,21 @@ Q♠ K♠ A♣ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ T♣ J♣
 Q♣ K♣ A♢ 2♢ 3♢ 4♢ 5♢ 6♢ 7♢ 8♢ 9♢ T♢ J♢
 ```
 
+## Unicode Characters
+
+The standard playing cards have unicode character representations. Use `Char(c)` to return that character.
+
+```julia
+julia> c = Card(:diamonds, 4);
+
+julia> Char(c)
+'🃄': Unicode U+1F0C4 (category So: Symbol, other)
+```
+
+The characters are nearly unreadable at small font sizes (e.g., 12 point) so would need to be enlarged to be visible.
+
+<font size=64>🃄</font>
+
 ## Acknowledgement
 
 Developed  with input from [@charleskawczynski](https://github.com/charleskawczynski)
