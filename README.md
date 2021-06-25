@@ -250,9 +250,9 @@ julia> Char(c)
 '🃄': Unicode U+1F0C4 (category So: Symbol, other)
 ```
 
-The characters are nearly unreadable at small font sizes (e.g., 12 point) so would need to be enlarged to be visible.
+The characters are nearly unreadable at small font sizes (e.g., 12 point); they need to be enlarged to be visible.
 
-<font size=64>🃄</font>
+<font size=6>🃄</font>
 
 ## Acknowledgement
 
