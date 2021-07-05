@@ -1,11 +1,13 @@
 # handy ways to specify cards
-export ♣, ♢, ♡, ♠
+export ♣, ♢, ♡, ♠, ♦, ♥
 import Base: (*)
 
 const ♣ = Suit(:clubs)
 const ♢ = Suit(:diamonds)
 const ♡ = Suit(:hearts)
 const ♠ = Suit(:spades)
+const ♦ = ♢
+const ♥ = ♡
 
 (*)(r::Int, s::Suit) = Card(s, r)
 
@@ -18,6 +20,13 @@ const Q♣ = Card(♣, 12)
 const K♣ = Card(♣, 13)
 
 export A♢, T♢, J♢, Q♢, K♢
+export A♦, T♦, J♦, Q♦, K♦
+
+const A♦ = Card(♢, 1)
+const T♦ = Card(♢, 10)
+const J♦ = Card(♢, 11)
+const Q♦ = Card(♢, 12)
+const K♦ = Card(♢, 13)
 
 const A♢ = Card(♢, 1)
 const T♢ = Card(♢, 10)
@@ -26,12 +35,19 @@ const Q♢ = Card(♢, 12)
 const K♢ = Card(♢, 13)
 
 export A♡, T♡, J♡, Q♡, K♡
+export A♥, T♥, J♥, Q♥, K♥
 
 const A♡ = Card(♡, 1)
 const T♡ = Card(♡, 10)
 const J♡ = Card(♡, 11)
 const Q♡ = Card(♡, 12)
 const K♡ = Card(♡, 13)
+
+const A♥ = Card(♡, 1)
+const T♥ = Card(♡, 10)
+const J♥ = Card(♡, 11)
+const Q♥ = Card(♡, 12)
+const K♥ = Card(♡, 13)
 
 export A♠, T♠, J♠, Q♠, K♠
 

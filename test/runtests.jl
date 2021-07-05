@@ -41,3 +41,6 @@ riffle!(d)
 @test A♣ == Card(:clubs, 1)
 @test K♣ == 13♣
 @test 7♠ == Card(:spades, 7)
+
+@test 5♢ == 5♦
+@test A♡ == A♥
