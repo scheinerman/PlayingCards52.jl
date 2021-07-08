@@ -47,3 +47,5 @@ riffle!(d)
 
 @test Suit(:clubs) == ♣
 @test ♡ == ♥
+
+@test name(Card(:clubs, 13)) == "king of clubs"

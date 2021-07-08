@@ -183,6 +183,18 @@ julia> Set(deck()[1:5])
 {2♠,6♢,6♡,T♠,K♣}
 ```
 
+## Long-Form Names
+
+The `name` function returns a long-form name of a card. 
+```julia
+julia> c = Card(:hearts,1)
+A♡
+
+julia> name(c)
+"ace of hearts"
+```
+
+
 ## Shuffling
 
 The `deck()` function returns a randomly shuffled deck of cards with all 52! 

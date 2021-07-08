@@ -9,8 +9,8 @@ _spade_base = 0x1F0A1
 
 function _make_chars(base::Integer)
     vals = collect(base:base+10)
-    append!(vals, base+12)
-    append!(vals, base+13)
+    append!(vals, base + 12)
+    append!(vals, base + 13)
     return Char.(vals)
 
 end

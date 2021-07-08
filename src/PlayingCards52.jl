@@ -10,7 +10,7 @@ export Card, Suit, suit, rank, index, color
 
 suit_list = [:clubs, :diamonds, :hearts, :spades]
 suit_set = Set(suit_list)
-suit_strings = ["♣","♢","♡","♠"]
+suit_strings = ["♣", "♢", "♡", "♠"]
 suit_number = Dict{Symbol,Int}(:clubs => 1, :diamonds => 2, :hearts => 3, :spades => 4)
 
 rank_list = "A23456789TJQK"
@@ -23,7 +23,7 @@ struct Suit
     end
 
     function Suit(s::Symbol)
-        chk = [ s==c for c in suit_list ]
+        chk = [s == c for c in suit_list]
         if !any(chk)
             error("No such suit $s.\nUse one of these: $suit_list.")
         end
@@ -113,7 +113,7 @@ function show(io::IO, C::Card)
 end
 
 function show(io::IO, S::Suit)
-    print(io,string(S))
+    print(io, string(S))
 end
 
 include("ordering.jl")
@@ -121,5 +121,6 @@ include("deck.jl")
 include("shuffle.jl")
 include("input.jl")
 include("unicode.jl")
+include("card_names.jl")
 
 end # module
