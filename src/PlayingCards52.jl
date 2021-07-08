@@ -17,9 +17,18 @@ suit_number = Dict{Symbol,Int}(:clubs => 1, :diamonds => 2, :hearts => 3, :spade
 rank_list = "A23456789TJQK"
 
 struct Suit
-    s::Symbol
+    s::Int8
+    function Suit(s::Integer)
+        @assert 1 <= s <= 4 "Suit index must be 1, 2, 3, or 4"
+        new(s)
+    end
+
     function Suit(s::Symbol)
-        @assert in(s, suit_list) "No such suit $s.\nUse one of these: $suit_list."
+        chk = [ s==c for c in suit_list ]
+        if !any(chk)
+            error("No such suit $s.\nUse one of these: $suit_list.")
+        end
+        s = findfirst(chk)
         new(s)
     end
 end
@@ -31,7 +40,7 @@ end
 """
 struct Card
     suit::Suit
-    rnk::Int
+    rnk::Int8
     function Card(s::Symbol, r::Int)
         @assert 1 <= r <= 13 "Card rank must be between 1 (ace) and 13 (king)"
         new(Suit(s), r)
@@ -78,7 +87,7 @@ rank(c::Card)::Int = c.rnk
 `suit(C)` returns a `Symbol` that is the suit of this card.
 It is once of `:clubs`, `:diamonds`, `:hearts`, or `:spades`.
 """
-suit(c::Card)::Symbol = c.suit.s
+suit(c::Card)::Symbol = suit_list[c.suit.s]
 
 """
 `color(C::Card)` returns the color of the card as either
