@@ -6,12 +6,11 @@ import LinearAlgebra: rank
 import Base: string, show
 
 
-export Card, suit, rank, index, color
+export Card, Suit, suit, rank, index, color
 
 suit_list = [:clubs, :diamonds, :hearts, :spades]
 suit_set = Set(suit_list)
-suit_char =
-    Dict{Symbol,Char}(:clubs => '♣', :diamonds => '♢', :hearts => '♡', :spades => '♠')
+suit_strings = ["♣","♢","♡","♠"]
 suit_number = Dict{Symbol,Int}(:clubs => 1, :diamonds => 2, :hearts => 3, :spades => 4)
 
 rank_list = "A23456789TJQK"
@@ -72,8 +71,7 @@ Card()::Card = Card(mod(rand(Int), 52) + 1)
 such that `C == Card(k)`.
 """
 function index(C::Card)::Int
-    global suit_number
-    s = suit_number[suit(C)]
+    s = suit(C).s
     return 13 * (s - 1) + rank(C)
 end
 
@@ -83,19 +81,23 @@ end
 """
 rank(c::Card)::Int = c.rnk
 
+
 """
-`suit(C)` returns a `Symbol` that is the suit of this card.
-It is once of `:clubs`, `:diamonds`, `:hearts`, or `:spades`.
+`suit(C)` returns the suit of the card `C`. It is one of the following:
+`♣`, `♢`, `♡`, or `♠`.
 """
-suit(c::Card)::Symbol = suit_list[c.suit.s]
+suit(c::Card)::Suit = c.suit
+
+string(s::Suit)::String = suit_strings[s.s]
+
 
 """
 `color(C::Card)` returns the color of the card as either
 the `Symbol` `:black` or `:red`.
 """
 function color(C::Card)::Symbol
-    s = suit(C)
-    if s == :clubs || s == :spades
+    s = suit(C).s
+    if s == 1 || s == 4
         return :black
     end
     return :red
@@ -103,13 +105,15 @@ end
 
 
 function string(C::Card)::String
-    global suit_char
-    global rank_list
-    return rank_list[rank(C)] * suit_char[suit(C)]
+    return rank_list[rank(C)] * string(suit(C))
 end
 
 function show(io::IO, C::Card)
     print(io, string(C))
+end
+
+function show(io::IO, S::Suit)
+    print(io,string(S))
 end
 
 include("ordering.jl")

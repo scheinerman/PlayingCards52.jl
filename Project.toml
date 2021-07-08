@@ -1,7 +1,7 @@
 name = "PlayingCards52"
 uuid = "c2ceccfa-fa3a-4f0d-8d5f-27465c1854bf"
 authors = ["Ed Scheinerman <ers@jhu.edu>"]
-version = "0.1.5"
+version = "0.2.0"
 
 
 [deps]

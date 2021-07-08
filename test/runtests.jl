@@ -44,3 +44,6 @@ riffle!(d)
 
 @test 5♢ == 5♦
 @test A♡ == A♥
+
+@test Suit(:clubs) == ♣
+@test ♡ == ♥

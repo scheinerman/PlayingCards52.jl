@@ -39,8 +39,8 @@ function (<)(C::Card, D::Card)::Bool
 
     # compare by suits
 
-    sC = suit_number[suit(C)]
-    sD = suit_number[suit(D)]
+    sC = suit(C).s
+    sD = suit(D).s
 
     return sC < sD
 end

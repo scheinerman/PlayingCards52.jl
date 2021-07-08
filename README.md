@@ -63,13 +63,18 @@ julia> 1♣
 A♣
 ```
 
-Note that the four suit symbols are defined as objects of type `PlayingCards52.Suit`:
+Note that the four suit symbols are defined as objects of type `Suit`.
 ```julia
-julia> ♠    # type \spadesuit and then TAB
-PlayingCards52.Suit(:spades)
+julia> typeof(♠)
+Suit
+```
+A `Suit` be created either by typing (say) `\heartsuit`+TAB (giving ♡) or `Suit(:hearts)`
+```julia
+julia> Suit(:hearts) == ♡
+true
 ```
 
-Cards can be created either using either `:spades` or `♠`:
+Cards can be created either using either a symbol `:spades` or suit `♠`:
 ```julia
 julia> a = Card(:spades,5)
 5♠
@@ -83,14 +88,14 @@ true
 
 ## Determine Properties
 
-The functions `suit` and `rank` return the suit (as a `Symbol`) and the
+The functions `suit` and `rank` return the suit (as a `Suit`) and the
 rank (as an `Int`) of the card.
 ```julia
 julia> c = Card()
 J♣
 
 julia> suit(c)
-:clubs
+♣
 
 julia> rank(c)
 11
