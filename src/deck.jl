@@ -1,7 +1,9 @@
 export deck, print_deck
 
 """
-`deck()` returns a 52-long list of all cards in random order.
+    deck() 
+
+Returns a 52-long list of all cards in random order.
 Use `deck(false)` to get a list in new-box order (from Ace of Clubs
 to King of Spades).
 """
@@ -16,8 +18,10 @@ end
 
 
 """
-`print_deck(d)` assumes that `d` is a 52-long list of `Card`s
-(that is, a full deck) and then prints `d` in four lines
+    print_deck(d)
+    
+Here `d` is a 52-long list of `Card`s
+(that is, a full deck). Print `d` in four lines
 with 13 cards per line.
 """
 function print_deck(d::Vector{Card})

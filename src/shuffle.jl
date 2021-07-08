@@ -1,7 +1,9 @@
 export riffle, riffle!, cut, cut!
 
 """
-`riffle!(list)` does an in-place riffle shuffle permutation on
+    riffle!(list)
+
+Perform an in-place riffle shuffle permutation on
 `list` using the Gilbert–Shannon–Reeds model.
 """
 function riffle!(list::Vector)
@@ -37,7 +39,9 @@ function riffle!(list::Vector)
 end
 
 """
-`riffle(list)` performs a riffle shuffle permutation on a copy of `list` using the 
+    riffle(list)
+
+Perform a riffle shuffle permutation on a copy of `list` using the 
 Gilbert–Shannon–Reeds model. The original `list` is unchanged.
 """
 function riffle(list::Vector)
@@ -56,11 +60,15 @@ function _simple_binomial(n::Int)
 end
 
 """
-`cut!(list,idx)` cuts the deck `list` by moving cards `1` through `idx`
+    cut!(list,idx)
+
+Cut the deck `list` by moving cards `1` through `idx`
 (inclusive) to the back of the deck so the first card now was formerly
 the one at position `idx+1`.
 
-`cut!(list)` cuts the deck at a random location. If the deck has `n`
+    cut!(list)
+
+Cut the deck at a random location. If the deck has `n`
 cards, then the cut location is given by the binomial random
 variable `B(n,1/2)`.
 """
@@ -94,7 +102,10 @@ function cut!(list::Vector)
 end
 
 """
-`cut(list,idx)` and `cut(list)` uses `cut!` to cut a copy of the deck `list`
+    cut(list,idx)
+    cut(list)
+    
+Use `cut!` to cut a copy of the deck `list`
 leaving the original `list` unchanged.
 """
 function cut(list::Vector, idx::Int)

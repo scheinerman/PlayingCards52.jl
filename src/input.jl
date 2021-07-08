@@ -9,6 +9,7 @@ const ♠ = Suit(:spades)
 const ♦ = ♢
 const ♥ = ♡
 
+
 (*)(r::Int, s::Suit) = Card(s, r)
 
 export A♣, T♣, J♣, Q♣, K♣

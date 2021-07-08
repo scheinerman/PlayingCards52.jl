@@ -1,11 +1,7 @@
-#using PlayingCards52
-
-_club_base = 0x1F0D1
-_diamond_base = 0x1F0C1
-_heart_base = 0x1F0B1
-_spade_base = 0x1F0A1
-
-# _bases = [_club_base, _diamond_base, _heart_base, _spade_base]
+const _club_base = 0x1F0D1
+const _diamond_base = 0x1F0C1
+const _heart_base = 0x1F0B1
+const _spade_base = 0x1F0A1
 
 function _make_chars(base::Integer)
     vals = collect(base:base+10)
@@ -23,8 +19,15 @@ append!(_cards, _make_chars(_spade_base))
 import Base.Char
 
 """
-`Char(c::Card)` returns the unicode character for that playing card.
+    Char(c::Card)
+
+Return the unicode character for that playing card.
+
+```
+julia> Char(4♣)
+'🃔': Unicode U+1F0D4 (category So: Symbol, other)
+```
 """
 function Char(c::Card)
-    return _cards[index(c)]
+    return @inbounds _cards[index(c)]
 end

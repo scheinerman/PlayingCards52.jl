@@ -1,6 +1,6 @@
 export name
 
-rank_names = [
+const rank_names = [
     "ace"
     "two"
     "three"
@@ -16,7 +16,7 @@ rank_names = [
     "king"
 ]
 
-suit_names = [
+const suit_names = [
     "clubs"
     "diamonds"
     "hearts"
@@ -36,5 +36,5 @@ julia> name(c)
 ```
 """
 function name(c::Card)::String
-    rank_names[rank(c)] * " of " * suit_names[suit(c).s]
+    @inbounds rank_names[rank(c)] * " of " * suit_names[suit(c).s]
 end
