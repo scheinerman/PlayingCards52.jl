@@ -11,7 +11,8 @@ export Card, Suit, suit, rank, index, color
 const suit_list = [:clubs, :diamonds, :hearts, :spades]
 const suit_set = Set(suit_list)
 const suit_strings = ["♣", "♢", "♡", "♠"]
-const suit_number = Dict{Symbol,Int}(:clubs => 1, :diamonds => 2, :hearts => 3, :spades => 4)
+const suit_number =
+    Dict{Symbol,Int}(:clubs => 1, :diamonds => 2, :hearts => 3, :spades => 4)
 const rank_list = "A23456789TJQK"
 
 
