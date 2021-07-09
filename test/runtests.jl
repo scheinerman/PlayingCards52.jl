@@ -24,6 +24,7 @@ ace_high(false)
 
 @test color(Card(:clubs, 5)) == color(Card(:spades, 2))
 @test color(Card(:clubs, 5)) != color(Card(:diamonds, 2))
+@test color(Suit(1)) == color(♠)
 
 @test Char(Card(:clubs, 5)) == '🃕'
 

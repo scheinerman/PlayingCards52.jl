@@ -1,4 +1,5 @@
 module PlayingCards52
+using Base: Symbol
 using LinearAlgebra, Random
 
 
@@ -112,18 +113,26 @@ string(s::Suit)::String = @inbounds suit_strings[s.s]
 
 
 """
-    color(C::Card)
+    color(C::Card)::Symbol
 
-Return the color of the card as one of the symbols `:black` or `:red`.
+Return the color of the card as one of `:black` or `:red`.
 """
 function color(C::Card)::Symbol
-    s = suit(C).s
+    return color(suit(C))
+end
+
+"""
+    color(s::Suit)::Symbol
+
+Return `:black` for `♣` or `♠` and `:red` for `♢` or `♡`.
+"""
+function color(s::Suit)::Symbol
+    s = s.s
     if s == 1 || s == 4
         return :black
     end
     return :red
 end
-
 
 function string(C::Card)::String
     @inbounds return rank_list[rank(C)] * string(suit(C))
